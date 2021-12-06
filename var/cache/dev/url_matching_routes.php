@@ -13,6 +13,10 @@ return [
         '/_profiler/search_bar' => [[['_route' => '_profiler_search_bar', '_controller' => 'web_profiler.controller.profiler::searchBarAction'], null, null, null, false, false, null]],
         '/_profiler/phpinfo' => [[['_route' => '_profiler_phpinfo', '_controller' => 'web_profiler.controller.profiler::phpinfoAction'], null, null, null, false, false, null]],
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
+        '/number' => [
+            [['_route' => 'app_index_number', '_controller' => 'App\\Controller\\IndexController::number'], null, null, null, false, false, null],
+            [['_route' => 'index', '_controller' => 'App\\Controller\\IndexController::number'], null, null, null, false, false, null],
+        ],
     ],
     [ // $regexpList
         0 => '{^(?'
@@ -31,6 +35,11 @@ return [
                     .')'
                     .'|error/(\\d+)(?:\\.([^/]++))?(*:159)'
                 .')'
+                .'|/show(?'
+                    .'|(?:/([0-9]+))?(*:190)'
+                    .'|Id/([^/]++)(*:209)'
+                .')'
+                .'|/count(?:/([^/]++))?(*:238)'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -40,8 +49,11 @@ return [
         101 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         114 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         124 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
-        159 => [
-            [['_route' => '_preview_error', '_controller' => 'error_controller::preview', '_format' => 'html'], ['code', '_format'], null, null, false, true, null],
+        159 => [[['_route' => '_preview_error', '_controller' => 'error_controller::preview', '_format' => 'html'], ['code', '_format'], null, null, false, true, null]],
+        190 => [[['_route' => 'app_index_showname', 'name' => null, '_controller' => 'App\\Controller\\IndexController::showName'], ['name'], null, null, false, true, null]],
+        209 => [[['_route' => 'app_index_showid', '_controller' => 'App\\Controller\\IndexController::showId'], ['id'], ['GET' => 0], null, false, true, null]],
+        238 => [
+            [['_route' => 'app_index_count', 'int' => null, '_controller' => 'App\\Controller\\IndexController::count'], ['int'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

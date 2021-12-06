@@ -10,8 +10,10 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
             'path' => [
                 '/show/{name}',
             ],
-            'name' => [
-                'show_name',
+            'requirements' => [
+                [
+                    'name' => '[0-9]+',
+                ],
             ],
         ],
     ],

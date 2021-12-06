@@ -14,5 +14,10 @@ return [
     '_profiler_router' => [['token'], ['_controller' => 'web_profiler.controller.router::panelAction'], [], [['text', '/router'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], [], []],
     '_profiler_exception' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::body'], [], [['text', '/exception'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], [], []],
     '_profiler_exception_css' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::stylesheet'], [], [['text', '/exception.css'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], [], []],
+    'app_index_number' => [[], ['_controller' => 'App\\Controller\\IndexController::number'], [], [['text', '/number']], [], [], []],
+    'app_index_showname' => [['name'], ['name' => null, '_controller' => 'App\\Controller\\IndexController::showName'], ['name' => '[0-9]+'], [['variable', '/', '[0-9]+', 'name', true], ['text', '/show']], [], [], []],
+    'app_index_showid' => [['id'], ['_controller' => 'App\\Controller\\IndexController::showId'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/showId']], [], [], []],
+    'app_index_count' => [['int'], ['int' => null, '_controller' => 'App\\Controller\\IndexController::count'], [], [['variable', '/', '[^/]++', 'int', true], ['text', '/count']], [], [], []],
     '_preview_error' => [['code', '_format'], ['_controller' => 'error_controller::preview', '_format' => 'html'], ['code' => '\\d+'], [['variable', '.', '[^/]++', '_format', true], ['variable', '/', '\\d+', 'code', true], ['text', '/_error']], [], [], []],
+    'index' => [[], ['_controller' => 'App\\Controller\\IndexController::number'], [], [['text', '/number']], [], [], []],
 ];

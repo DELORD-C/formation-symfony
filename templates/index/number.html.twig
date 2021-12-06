@@ -1,0 +1,13 @@
+<html>
+    <body>
+        {% if return is iterable %}
+            <ul>
+            {%  for number in return %}
+                <li>{{ number }}</li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>{{ return }}</p>
+        {%  endif %}
+    </body>
+</html>
