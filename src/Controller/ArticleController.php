@@ -94,7 +94,7 @@ class ArticleController extends AbstractController
     /**
      * @Route("/article/edit/{id}")
      */
-    public function updateAction(ManagerRegistry $doctrine, Request $request, $id) {
+    public function updateAction(ManagerRegistry $doctrine, Request $request, $id): Response {
         $articles = $doctrine->getRepository(Article::class);
         $article = $articles->find($id);
 
@@ -120,7 +120,8 @@ class ArticleController extends AbstractController
         }
 
         return $this->render('article/edit.html.twig', [
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'article' => $article
         ]);
     }
 }

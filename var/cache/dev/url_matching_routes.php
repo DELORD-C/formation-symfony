@@ -19,6 +19,7 @@ return [
             [['_route' => 'app_index_number', '_controller' => 'App\\Controller\\IndexController::number'], null, null, null, false, false, null],
             [['_route' => 'index', '_controller' => 'App\\Controller\\IndexController::number'], null, null, null, false, false, null],
         ],
+        '/' => [[['_route' => 'app_index_indexredirect', '_controller' => 'App\\Controller\\IndexController::indexRedirect'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'

@@ -1,5 +1,4 @@
-<html>
-<body>
+{% include 'header.html.twig' with {'titre': 'Créer un article'} %}
     {{ form(form) }}
-</body>
-</html>
+    {% include 'return.html.twig' %}
+{% include 'footer.html.twig' %}

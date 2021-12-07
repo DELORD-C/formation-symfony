@@ -1,5 +1,4 @@
-<html>
-<body>
+{% include 'header.html.twig' with {'titre': 'Modifier l\'article ' ~ article.titre} %}
     {{ form_start(form) }}
         <table>
             <tbody>
@@ -22,5 +21,5 @@
             </tbody>
         </table>
     {{ form_end(form) }}
-</body>
-</html>
+    {% include 'return.html.twig' %}
+{% include 'footer.html.twig' %}

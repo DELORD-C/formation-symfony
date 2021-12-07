@@ -1,15 +1,15 @@
-<html>
-<body>
-        <table>
-                <thead>
-                        <th>Titre :</th>
-                        <th>Titre :</th>
-                        <th>Auteur :</th>
-                        <th>Actions :</th>
-                </thead>
+{% include 'header.html.twig' with {'titre': 'Liste des articles'} %}
+<table>
+            <thead>
+                    <th>ID :</th>
+                    <th>Titre :</th>
+                    <th>Auteur :</th>
+                    <th>Actions :</th>
+            </thead>
             <tbody>
                     {% for article in articles %}
                             <tr>
+                                    <td>{{ article.id }}</td>
                                     <td>{{ article.titre }}</td>
                                     <td>{{ article.auteur }}</td>
                                     <td>
@@ -22,6 +22,4 @@
             </tbody>
     </table>
     <a href="/article/new">Créer un article</a>
-</body>
-</html>
-
+{% include 'footer.html.twig' %}

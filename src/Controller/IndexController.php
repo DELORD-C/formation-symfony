@@ -34,8 +34,7 @@ class IndexController extends AbstractController
     /**
      * @Route("/showId/{id}", methods={"GET"})
      */
-    public function showId(string $id): Response
-    {
+    public function showId(string $id): Response {
 
         return new Response(
             '<html><body>Id : ' . $id . '</body></html>'
@@ -45,8 +44,7 @@ class IndexController extends AbstractController
     /**
      * @Route("/count/{int}")
      */
-    public function count($int = null): Response
-    {
+    public function count($int = null): Response {
         if ($int != null && is_numeric($int)) {
             $return = [];
             for ($i = 0; $i <= intval($int); $i++) {
@@ -59,5 +57,12 @@ class IndexController extends AbstractController
         return $this->render('index/number.html.twig', [
             'return' => $return
         ]);
+    }
+
+    /**
+     * @Route("/")
+     */
+    public function indexRedirect(): Response {
+        return $this->redirect($this->generateUrl('app_article_show'));
     }
 }

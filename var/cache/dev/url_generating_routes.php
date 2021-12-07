@@ -23,6 +23,7 @@ return [
     'app_index_showname' => [['name'], ['name' => null, '_controller' => 'App\\Controller\\IndexController::showName'], ['name' => '[0-9]+'], [['variable', '/', '[0-9]+', 'name', true], ['text', '/show']], [], [], []],
     'app_index_showid' => [['id'], ['_controller' => 'App\\Controller\\IndexController::showId'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/showId']], [], [], []],
     'app_index_count' => [['int'], ['int' => null, '_controller' => 'App\\Controller\\IndexController::count'], [], [['variable', '/', '[^/]++', 'int', true], ['text', '/count']], [], [], []],
+    'app_index_indexredirect' => [[], ['_controller' => 'App\\Controller\\IndexController::indexRedirect'], [], [['text', '/']], [], [], []],
     '_preview_error' => [['code', '_format'], ['_controller' => 'error_controller::preview', '_format' => 'html'], ['code' => '\\d+'], [['variable', '.', '[^/]++', '_format', true], ['variable', '/', '\\d+', 'code', true], ['text', '/_error']], [], [], []],
     'index' => [[], ['_controller' => 'App\\Controller\\IndexController::number'], [], [['text', '/number']], [], [], []],
 ];
