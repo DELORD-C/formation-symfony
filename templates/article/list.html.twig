@@ -1,10 +1,15 @@
 {% include 'header.html.twig' with {'titre': 'Liste des articles'} %}
-<table>
+    {% for message in app.flashes('success') %}
+        <span class="success">{{ message }}</span>
+    {% endfor %}
+    <table>
             <thead>
+                <tr>
                     <th>ID :</th>
                     <th>Titre :</th>
                     <th>Auteur :</th>
                     <th>Actions :</th>
+                </tr>
             </thead>
             <tbody>
                     {% for article in articles %}

@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Article;
+use App\Services\Messager;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Doctrine\Persistence\ManagerRegistry;
@@ -35,6 +36,8 @@ class ArticleController extends AbstractController
             $manager->persist($article);
             $manager->flush();
 
+            $this->addFlash('success', Messager::randomMessage());
+
             return $this->redirect($this->generateUrl('app_article_show'));
         }
 
@@ -56,7 +59,7 @@ class ArticleController extends AbstractController
 
         return $this->render(
             'article/view.html.twig', [
-                'article' => $article
+                'article' => $article,
             ]
         );
     }
