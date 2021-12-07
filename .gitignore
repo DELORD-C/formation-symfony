@@ -1,6 +1,5 @@
 .idea
 /bin
-/config
 /migrations
 /vendor
 /var

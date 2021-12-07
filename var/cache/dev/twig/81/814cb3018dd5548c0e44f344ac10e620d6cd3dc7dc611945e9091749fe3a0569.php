@@ -194,6 +194,6 @@ class __TwigTemplate_f182d94cf3c58f56ad2c6943d3b9cf1dd69da18b1c9205ee6672e3945dc
         {% block body %}{% endblock %}
     </body>
 </html>
-", "base.html.twig", "/home/zulgard/Projets/symfony/templates/base.html.twig");
+", "base.html.twig", "/home/zulgard/Projets/formation-symfony/templates/base.html.twig");
     }
 }

@@ -434,6 +434,6 @@ class __TwigTemplate_a6ea6c651766143ab429cb04bc9ab0e80d1aa57dfa2285c546aa99f1eb4
     {%- set widget_class = widget_class|default('mr-2') -%}
     {{- parent() -}}
 {%- endblock radio_widget -%}
-", "tailwind_2_layout.html.twig", "/home/zulgard/Projets/symfony/vendor/symfony/twig-bridge/Resources/views/Form/tailwind_2_layout.html.twig");
+", "tailwind_2_layout.html.twig", "/home/zulgard/Projets/formation-symfony/vendor/symfony/twig-bridge/Resources/views/Form/tailwind_2_layout.html.twig");
     }
 }

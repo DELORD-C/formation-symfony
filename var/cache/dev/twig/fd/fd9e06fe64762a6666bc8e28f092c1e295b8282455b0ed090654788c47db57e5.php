@@ -447,6 +447,6 @@ class __TwigTemplate_122b0d8534e6c7a0643d54052fcdbf63be30b9023d3e06840b9fe9e5373
     });
 })();
 </script>
-", "@WebProfiler/Profiler/settings.html.twig", "/home/zulgard/Projets/symfony/vendor/symfony/web-profiler-bundle/Resources/views/Profiler/settings.html.twig");
+", "@WebProfiler/Profiler/settings.html.twig", "/home/zulgard/Projets/formation-symfony/vendor/symfony/web-profiler-bundle/Resources/views/Profiler/settings.html.twig");
     }
 }

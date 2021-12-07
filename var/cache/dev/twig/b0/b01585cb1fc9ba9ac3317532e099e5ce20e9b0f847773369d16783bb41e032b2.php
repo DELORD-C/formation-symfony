@@ -174,6 +174,6 @@ class __TwigTemplate_dc496f34146ea818ff784fe63bc4f9b95150dca8444e92adad2f660f583
         {% endif %}
     </div>
 {% endblock %}
-", "@WebProfiler/Profiler/open.html.twig", "/home/zulgard/Projets/symfony/vendor/symfony/web-profiler-bundle/Resources/views/Profiler/open.html.twig");
+", "@WebProfiler/Profiler/open.html.twig", "/home/zulgard/Projets/formation-symfony/vendor/symfony/web-profiler-bundle/Resources/views/Profiler/open.html.twig");
     }
 }

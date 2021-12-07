@@ -1,0 +1,26 @@
+<html>
+<body>
+        <table>
+                <thead>
+                        <th>Titre :</th>
+                        <th>Auteur :</th>
+                        <th>Actions :</th>
+                </thead>
+            <tbody>
+                    {% for article in articles %}
+                            <tr>
+                                    <td>{{ article.titre }}</td>
+                                    <td>{{ article.auteur }}</td>
+                                    <td>
+                                        <a href="/article/{{ article.id }}">Voir</a>
+                                        <a href="/article/edit/{{ article.id }}">Modifier</a>
+                                        <a href="/article/delete/{{ article.id }}">Supprimer</a>
+                                    </td>
+                            </tr>
+                    {% endfor %}
+            </tbody>
+    </table>
+    <a href="/article/new">Créer un article</a>
+</body>
+</html>
+
