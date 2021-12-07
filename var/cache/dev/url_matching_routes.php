@@ -37,12 +37,16 @@ return [
                     .')'
                     .'|error/(\\d+)(?:\\.([^/]++))?(*:159)'
                 .')'
-                .'|/article/([^/]++)(*:185)'
-                .'|/show(?'
-                    .'|(?:/([0-9]+))?(*:215)'
-                    .'|Id/([^/]++)(*:234)'
+                .'|/article/(?'
+                    .'|([^/]++)(*:188)'
+                    .'|delete/([^/]++)(*:211)'
+                    .'|edit/([^/]++)(*:232)'
                 .')'
-                .'|/count(?:/([^/]++))?(*:263)'
+                .'|/show(?'
+                    .'|(?:/([0-9]+))?(*:263)'
+                    .'|Id/([^/]++)(*:282)'
+                .')'
+                .'|/count(?:/([^/]++))?(*:311)'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -53,10 +57,12 @@ return [
         114 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         124 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
         159 => [[['_route' => '_preview_error', '_controller' => 'error_controller::preview', '_format' => 'html'], ['code', '_format'], null, null, false, true, null]],
-        185 => [[['_route' => 'app_article_view', '_controller' => 'App\\Controller\\ArticleController::viewAction'], ['id'], null, null, false, true, null]],
-        215 => [[['_route' => 'app_index_showname', 'name' => null, '_controller' => 'App\\Controller\\IndexController::showName'], ['name'], null, null, false, true, null]],
-        234 => [[['_route' => 'app_index_showid', '_controller' => 'App\\Controller\\IndexController::showId'], ['id'], ['GET' => 0], null, false, true, null]],
-        263 => [
+        188 => [[['_route' => 'app_article_view', '_controller' => 'App\\Controller\\ArticleController::viewAction'], ['id'], null, null, false, true, null]],
+        211 => [[['_route' => 'app_article_delete', '_controller' => 'App\\Controller\\ArticleController::deleteAction'], ['id'], null, null, false, true, null]],
+        232 => [[['_route' => 'app_article_update', '_controller' => 'App\\Controller\\ArticleController::updateAction'], ['id'], null, null, false, true, null]],
+        263 => [[['_route' => 'app_index_showname', 'name' => null, '_controller' => 'App\\Controller\\IndexController::showName'], ['name'], null, null, false, true, null]],
+        282 => [[['_route' => 'app_index_showid', '_controller' => 'App\\Controller\\IndexController::showId'], ['id'], ['GET' => 0], null, false, true, null]],
+        311 => [
             [['_route' => 'app_index_count', 'int' => null, '_controller' => 'App\\Controller\\IndexController::count'], ['int'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

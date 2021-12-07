@@ -8,6 +8,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class ArticleController extends AbstractController
@@ -15,7 +16,8 @@ class ArticleController extends AbstractController
     /**
      * @Route("/article/new")
      */
-    public function createAction(ManagerRegistry $doctrine, Request $request) {
+    public function createAction(ManagerRegistry $doctrine, Request $request): Response
+    {
         $article = new Article(); // On récupère un schéma d'article vide
 
         $form = $this->createFormBuilder($article) // On créé un formulaire correspondant à notre objet article
@@ -33,7 +35,7 @@ class ArticleController extends AbstractController
             $manager->persist($article);
             $manager->flush();
 
-            echo 'Envoyé';
+            return $this->redirect($this->generateUrl('app_article_show'));
         }
 
         return $this->render('article/new.html.twig', [
@@ -44,7 +46,7 @@ class ArticleController extends AbstractController
     /**
      * @Route("/article/{id}")
      */
-    public function viewAction(ManagerRegistry $doctrine, int $id) {
+    public function viewAction(ManagerRegistry $doctrine, int $id): Response {
         $article = $doctrine->getRepository(Article::class);
         $article = $article->find($id);
 
@@ -62,12 +64,63 @@ class ArticleController extends AbstractController
     /**
      * @Route("/articles/all")
      */
-    public function showAction(ManagerRegistry $doctrine) {
+    public function showAction(ManagerRegistry $doctrine): Response {
         $articles = $doctrine->getRepository(Article::class);
         $articles = $articles->findAll();
 
         return $this->render('article/list.html.twig', array(
             'articles' => $articles
         ));
+    }
+
+    /**
+     * @Route("/article/delete/{id}")
+     */
+    public function deleteAction(ManagerRegistry $doctrine, $id): Response {
+        $manager = $doctrine->getManager();
+        $articles = $doctrine->getRepository(Article::class);
+        $article = $articles->find($id);
+
+        if (!$article) {
+            throw $this->createNotFoundException("Il n'y a pas d'article pour l'id $id.");
+        }
+
+        $manager->remove($article);
+        $manager->flush();
+
+        return $this->redirect($this->generateUrl('app_article_show'));
+    }
+
+    /**
+     * @Route("/article/edit/{id}")
+     */
+    public function updateAction(ManagerRegistry $doctrine, Request $request, $id) {
+        $articles = $doctrine->getRepository(Article::class);
+        $article = $articles->find($id);
+
+        if (!$article) {
+            throw $this->createNotFoundException("Il n'y a pas d'article pour l'id $id.");
+        }
+
+        $form = $this->createFormBuilder($article)
+            ->add('titre', TextType::class)
+            ->add('auteur', TextType::class)
+            ->add('description', TextType::class)
+            ->add('save', SubmitType::class, ['label' => 'Valider'])
+            ->getForm();
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()) {
+            $manager = $doctrine->getManager();
+            $article = $form->getData();
+            $manager->flush();
+
+            return $this->redirect($this->generateUrl('app_article_show'));
+        }
+
+        return $this->render('article/edit.html.twig', [
+            'form' => $form->createView()
+        ]);
     }
 }

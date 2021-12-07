@@ -17,6 +17,8 @@ return [
     'app_article_create' => [[], ['_controller' => 'App\\Controller\\ArticleController::createAction'], [], [['text', '/article/new']], [], [], []],
     'app_article_view' => [['id'], ['_controller' => 'App\\Controller\\ArticleController::viewAction'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/article']], [], [], []],
     'app_article_show' => [[], ['_controller' => 'App\\Controller\\ArticleController::showAction'], [], [['text', '/articles/all']], [], [], []],
+    'app_article_delete' => [['id'], ['_controller' => 'App\\Controller\\ArticleController::deleteAction'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/article/delete']], [], [], []],
+    'app_article_update' => [['id'], ['_controller' => 'App\\Controller\\ArticleController::updateAction'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/article/edit']], [], [], []],
     'app_index_number' => [[], ['_controller' => 'App\\Controller\\IndexController::number'], [], [['text', '/number']], [], [], []],
     'app_index_showname' => [['name'], ['name' => null, '_controller' => 'App\\Controller\\IndexController::showName'], ['name' => '[0-9]+'], [['variable', '/', '[0-9]+', 'name', true], ['text', '/show']], [], [], []],
     'app_index_showid' => [['id'], ['_controller' => 'App\\Controller\\IndexController::showId'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/showId']], [], [], []],
