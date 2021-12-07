@@ -1,25 +1,30 @@
-{% include 'header.html.twig' with {'titre': 'Modifier l\'article ' ~ article.titre} %}
+{% extends "base.html.twig" %}
+
+{% block title %}Editer l'article {{ article.titre }}{% endblock %}
+{% block h1 %}Editer l'article {{ article.titre }}{% endblock %}
+
+{% block content %}
     {{ form_start(form) }}
-        <table>
-            <tbody>
-            <tr>
-                <th>Titre:</th>
-                <td>{{ form_widget(form.titre) }}</td>
-            </tr>
-            <tr>
-                <th>Auteur:</th>
-                <td>{{ form_widget(form.auteur) }}</td>
-            </tr>
-            <tr>
-                <th>Description:</th>
-                <td>{{ form_widget(form.description) }}</td>
-            </tr>
-            <tr>
-                <th></th>
-                <td>{{ form_widget(form.save) }}</td>
-            </tr>
-            </tbody>
-        </table>
+    <table>
+        <tbody>
+        <tr>
+            <th>Titre:</th>
+            <td>{{ form_widget(form.titre) }}</td>
+        </tr>
+        <tr>
+            <th>Auteur:</th>
+            <td>{{ form_widget(form.auteur) }}</td>
+        </tr>
+        <tr>
+            <th>Description:</th>
+            <td>{{ form_widget(form.description) }}</td>
+        </tr>
+        <tr>
+            <th></th>
+            <td>{{ form_widget(form.save) }}</td>
+        </tr>
+        </tbody>
+    </table>
     {{ form_end(form) }}
-    {% include 'return.html.twig' %}
-{% include 'footer.html.twig' %}
+    <a href="/">Retour</a>
+{% endblock %}

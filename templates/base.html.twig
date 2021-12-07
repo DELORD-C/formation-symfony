@@ -1,0 +1,19 @@
+<html>
+    <head>
+        {% block head %}
+        <title>{% block title %}{% endblock %} - PressMania</title>
+        {% endblock %}
+    </head>
+    <body>
+        <div class="content">
+            <h1>{% block h1 %}{% endblock %}</h1>
+            {% block content %}{% endblock %}
+        </div>
+        <div id="footer">
+            {% block footer %}
+                &copy; Copyright 2021 by <a href="https://madewithpassion.fr">
+                Clément DELORD</a>
+            {% endblock %}
+        </div>
+    </body>
+</html>

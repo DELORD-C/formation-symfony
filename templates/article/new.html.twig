@@ -1,4 +1,16 @@
-{% include 'header.html.twig' with {'titre': 'Créer un article'} %}
+{% extends "base.html.twig" %}
+
+{% block title %}Ajouter un Article{% endblock %}
+{% block h1 %}Ajouter un Article{% endblock %}
+
+{% block head %}
+    {{ parent() }}
+    <style>
+        * {
+            font-family: "DejaVu Sans";
+        }
+    </style>
+{% endblock %}
+{% block content %}
     {{ form(form) }}
-    {% include 'return.html.twig' %}
-{% include 'footer.html.twig' %}
+{% endblock %}

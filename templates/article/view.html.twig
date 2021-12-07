@@ -1,4 +1,9 @@
-{% include 'header.html.twig' with {'titre': 'Voir l\'article ' ~ article.titre} %}
+{% extends "base.html.twig" %}
+
+{% block title %}Voir l'article {{ article.titre }}{% endblock %}
+{% block h1 %}Voir l'article {{ article.titre }}{% endblock %}
+
+{% block content %}
     <table>
         <tbody>
         <tr>
@@ -15,5 +20,5 @@
         </tr>
         </tbody>
     </table>
-    {% include 'return.html.twig' %}
-{% include 'footer.html.twig' %}
+    <a href="/">Retour</a>
+{% endblock %}
