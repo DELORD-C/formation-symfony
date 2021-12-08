@@ -2,7 +2,12 @@
 /bin
 /migrations
 /vendor
+/vendor/*
+vendor
 /var
+/var/*
+var
+var/cache
 ###> symfony/webpack-encore-bundle ###
 /node_modules/
 /public/build/
