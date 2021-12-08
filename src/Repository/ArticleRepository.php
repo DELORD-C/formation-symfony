@@ -47,4 +47,24 @@ class ArticleRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function getLastTenArticles () {
+        $query = $this->createQueryBuilder('a')
+            ->orderBy('a.id', 'DESC')
+            ->setMaxResults(10)
+            ->getQuery();
+
+        return $query->execute();
+    }
+
+    public function getFirst() {
+        $conn = $this->getEntityManager()->getConnection();
+        $sql = "
+            SELECT * FROM article a
+            ORDER BY a.id ASC
+            LIMIT 1
+        ";
+        $query = $conn->prepare($sql);
+        return $query->execute()->fetchAllAssociative();
+    }
 }

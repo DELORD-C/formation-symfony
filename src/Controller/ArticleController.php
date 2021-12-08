@@ -65,7 +65,7 @@ class ArticleController extends AbstractController
     }
 
     /**
-     * @Route("/articles/all")
+     * @Route("/article/all", priority=1)
      */
     public function showAction(ManagerRegistry $doctrine): Response {
         $articles = $doctrine->getRepository(Article::class);
@@ -125,6 +125,26 @@ class ArticleController extends AbstractController
         return $this->render('article/edit.html.twig', [
             'form' => $form->createView(),
             'article' => $article
+        ]);
+    }
+
+    /**
+     * @Route("article/lastTen", priority=1)
+     */
+    public function getLastTen(ManagerRegistry $doctrine): Response {
+        $articles = $doctrine->getRepository(Article::class);
+        return $this->render('article/lastTen.html.twig', [
+            'articles' => $articles->getLastTenArticles()
+        ]);
+    }
+
+    /**
+     * @Route("article/first", priority=2)
+     */
+    public function getFirst(ManagerRegistry $doctrine): Response {
+        $articles = $doctrine->getRepository(Article::class);
+        return $this->render('article/first.html.twig', [
+            'articles' => $articles->getFirst()
         ]);
     }
 }
