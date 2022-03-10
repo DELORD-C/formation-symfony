@@ -1,21 +1,19 @@
+<!DOCTYPE html>
 <html>
     <head>
-        {% block head %}
-        <title>{% block title %}{% endblock %} - PressMania</title>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
         {% endblock %}
-        <link rel="stylesheet" href="/css/style.css">
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
     </head>
     <body>
-        <div class="content">
-            <h1>{% block h1 %}{% endblock %}</h1>
-            {% block content %}{% endblock %}
-        </div>
-        <div id="footer">
-            {% block footer %}
-                &copy; Copyright 2021 by <a href="https://madewithpassion.fr">
-                Clément DELORD</a>
-            {% endblock %}
-        </div>
-        <script src="/js/script.js"></script>
+        {% block body %}{% endblock %}
     </body>
 </html>
