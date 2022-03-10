@@ -2,6 +2,6 @@
 #    path: /
 #    controller: App\Controller\DefaultController::index
 
-app_nombre_chance:
-  path: /chance/nombre
-  controller: App\Controller\ChanceController::nombre
+app_nombre_chance: #nom de la route
+  path: /chance/nombre #url
+  controller: App\Controller\ChanceController::nombre #chemin du controller + fonction
